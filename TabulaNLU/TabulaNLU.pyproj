@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Core\Components\MachineLearning\Train.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Runner.py">
       <SubType>Code</SubType>
     </Compile>
@@ -40,6 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="intents.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\" />
+    <Folder Include="Core\Components\" />
+    <Folder Include="Core\Components\MachineLearning\" />
+    <Folder Include="Core\Utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

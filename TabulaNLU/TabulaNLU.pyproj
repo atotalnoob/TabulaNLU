@@ -21,7 +21,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Core\Components\TextProcessing\Response.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Components\TextProcessing\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Core\Components\IO\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Components\MachineLearning\Classifiers\TFClassifier.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Core\Components\MachineLearning\__init__.py">
@@ -53,6 +62,7 @@
     <Folder Include="Core\Components\MachineLearning\" />
     <Folder Include="Core\Components\MachineLearning\Classifiers\" />
     <Folder Include="Core\Components\IO\" />
+    <Folder Include="Core\Components\TextProcessing\" />
     <Folder Include="Core\Utils\" />
   </ItemGroup>
   <ItemGroup>

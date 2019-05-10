@@ -4,14 +4,13 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0ac0964d-1e4d-4e98-9bb7-f4c8ee0e9a5f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Trainer.py</StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <StartupFile>__main__.py</StartupFile>
+    <SearchPath>..\TabulaNLU</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>TabulaNLU</Name>
     <RootNamespace>TabulaNLU</RootNamespace>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|.venv|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +21,22 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Core\Components\MachineLearning\Train.py">
+    <Compile Include="Core\Components\IO\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Components\MachineLearning\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Components\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="__main__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Components\MachineLearning\Classifiers\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Runner.py">
@@ -31,24 +45,26 @@
     <Compile Include="Trainer.py" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="env\">
-      <Id>env</Id>
-      <Version>3.6</Version>
-      <Description>env (Python 3.6 (64-bit))</Description>
-      <InterpreterPath>Scripts\python.exe</InterpreterPath>
-      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>X64</Architecture>
-    </Interpreter>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="intents.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\" />
     <Folder Include="Core\Components\" />
     <Folder Include="Core\Components\MachineLearning\" />
+    <Folder Include="Core\Components\MachineLearning\Classifiers\" />
+    <Folder Include="Core\Components\IO\" />
     <Folder Include="Core\Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include=".venv\">
+      <Id>.venv</Id>
+      <Version>3.6</Version>
+      <Description>.venv (Python 3.6 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

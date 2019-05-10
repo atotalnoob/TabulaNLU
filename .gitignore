@@ -341,3 +341,5 @@ healthchecksdb
 /TabulaNLU/env/Lib
 /TabulaNLU/env
 /TabulaNLU/tflearn_logs
+/TabulaNLU/.venv
+/.vscode

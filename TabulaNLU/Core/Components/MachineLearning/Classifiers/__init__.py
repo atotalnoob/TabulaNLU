@@ -2,6 +2,9 @@ import json
 from datetime import datetime
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
+from Core.Components import IO
+
+
 stemmer = LancasterStemmer()
 
 # things we need for Tensorflow
@@ -11,7 +14,7 @@ import tensorflow as tf
 import random
 
 
-def TrainClassifier(trainingData, project="default"):
+def TrainTFClassifier(trainingData, project="default"):
     intents = json.load(trainingData)
 
 #with open('intents.json') as json_data:
@@ -84,8 +87,11 @@ def TrainClassifier(trainingData, project="default"):
     model = tflearn.DNN(net, tensorboard_dir='tflearn_logs')
     # Start training (apply gradient descent algorithm)
     model.fit(train_x, train_y, n_epoch=1000, batch_size=8, show_metric=True)
-    date = datetime.now().strftime('%Y%m%d-%H%M%S')
-    model.save('models/'+project+'/model_'+date+'.tflearn')
 
-    import pickle
-    pickle.dump( {'words':words, 'classes':classes, 'train_x':train_x, 'train_y':train_y}, open( 'models/'+project+'/training_data_'+date, 'wb' ) )
+    metadata = {}
+    metadata.words = words
+    metadata.classes = classes
+    metadata.train_x = train_x
+    metadata.train_y = train_y
+
+    IO.SaveTFModel(model,metadata, project)

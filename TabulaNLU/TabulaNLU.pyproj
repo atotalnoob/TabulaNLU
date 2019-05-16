@@ -64,6 +64,7 @@
     <Folder Include="Core\Components\IO\" />
     <Folder Include="Core\Components\TextProcessing\" />
     <Folder Include="Core\Utils\" />
+    <Folder Include="tests\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include=".venv\">

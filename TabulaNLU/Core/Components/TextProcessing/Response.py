@@ -1,7 +1,7 @@
 import tensorflow as tf
 import Core.Components.MachineLearning.Classifiers as Classifiers
 
-def ProcessText(text, project='default', context={}, model_name='', show_details=True):
+def ProcessText(text, project='default', context={}, model_name='', show_details=False):
 
     
     f.reset_default_graph()
@@ -18,7 +18,7 @@ def ProcessText(text, project='default', context={}, model_name='', show_details
     import json
     #load from IO
 
-def response(sentence, userID='123', show_details=False):
+def response(sentence, intents, userID='0', show_details=False):
     results = Classifiers.TFClassifier.classify(sentence)
     # if we have a classification then find the matching intent tag
     if results:
@@ -31,7 +31,6 @@ def response(sentence, userID='123', show_details=False):
                     if 'context_set' in i:
                         if show_details: print ('context:', i['context_set'])
                         context[userID] = i['context_set']
-
                     # check if this intent is contextual and applies to this user's conversation
                     if not 'context_filter' in i or \
                         (userID in context and 'context_filter' in i and i['context_filter'] == context[userID]):
